@@ -16,3 +16,17 @@ to run the environment you can just run
 `yarn expo`  
 
 the script in package.json will handle starting it up. then just pull up your expo go app (on the same weefee network) and you should be able to pull it up
+
+
+Recommended VSCode Extensions:
+- https://marketplace.visualstudio.com/items?itemName=msjsdiag.vscode-react-native
+- https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag
+- https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets
+- https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+- https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens
+- https://marketplace.visualstudio.com/items?itemName=vincaslt.highlight-matching-tag
+- https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css
+- https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion
+- https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+- https://marketplace.visualstudio.com/items?itemName=rvest.vs-code-prettier-eslint
+- https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons
