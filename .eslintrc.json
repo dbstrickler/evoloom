@@ -1,18 +1,20 @@
 {
     "env": {
         "browser": true,
+        "react-native/react-native": true,
         "es2021": true
     },
-    "extends": ["eslint:recommended", "prettier", "plugin:import"],
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
     "parserOptions": {
-        "ecmaVersion": "latest",
+        "ecmaFeatures": {
+            "jsx": true
+        },
         "sourceType": "module"
     },
+
     "plugins": ["react", "react-native"],
     "rules": {
         "eslint-disable-next-line": "off",
-        "react/react-in-jsx-scope": "off",
-        "import/no-unresolved": "error",
-        "react-native/no-unused-styles": "error"
+        "react/react-in-jsx-scope": "off"
     }
 }
