@@ -9,7 +9,7 @@ export const s = StyleSheet.create({
         fontSize: 26,
         marginLeft: 8,
     },
-    header: {
+    headerRow: {
         flexDirection: 'row',
     },
     footer: {},

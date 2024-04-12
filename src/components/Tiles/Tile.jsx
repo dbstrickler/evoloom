@@ -7,7 +7,7 @@ const Tile = () => {
 
     return (
         <View style={s.tile}>
-            <View style={s.header}>
+            <View style={s.headerRow}>
                 <Text style={s.text}>Task Title</Text>
                 <TouchableOpacity
                     onPress={() => {
