@@ -1,5 +1,5 @@
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import { View, StyleSheet, Dimensions } from 'react-native';
+import { View, Dimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -10,6 +10,7 @@ import 'react-native-url-polyfill/auto';
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback, useEffect, useState } from 'react';
+import Tile from './components/Tiles/Tile';
 library.add(fab, far, fas);
 let ScreenHeight = Dimensions.get('screen').height;
 
@@ -62,8 +63,13 @@ const App = () => {
                     <SafeAreaView
                         style={{ flex: 1, justifyContent: 'flex-start' }}
                     >
-                        <View>
-                            <Header />
+                        <Header />
+                        <View style={{ flex: 1 }}>
+                            <Tile title="Test Task" />
+                            <Tile title="Test Task adfadsfas" />
+                            <Tile title="Test Task 21" />
+                            <Tile title="Test Task 3" />
+                            <Tile title="Test Task 4455" />
                         </View>
                     </SafeAreaView>
                 </LinearGradient>

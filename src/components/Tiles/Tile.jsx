@@ -1,30 +1,68 @@
-import { View, TouchableOpacity, Text } from 'react-native';
+import { Text, View } from 'react-native';
 import { s } from './Tile.style';
 import { useState } from 'react';
+import CheckBox from '../MyCheckbox/Checkbox';
+import propTypes from 'prop-types';
 
-const Tile = () => {
+const Tile = ({ title }) => {
     const [isComplete, setIsComplete] = useState(false);
 
     return (
         <View style={s.tile}>
-            <View style={s.headerRow}>
-                <Text style={s.text}>Task Title</Text>
-                <TouchableOpacity
-                    onPress={() => {
-                        setIsComplete((v) => {
-                            console.log(v);
-                            return !v;
+            <View
+                style={{
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    height: '100%',
+                    width: '17%',
+                }}
+            >
+                <CheckBox
+                    checked={isComplete}
+                    onToggle={() => {
+                        setIsComplete((complete) => {
+                            return !complete;
                         });
                     }}
-                >
-                    {isComplete && <Text>Complete</Text>}
-                    {!isComplete && <Text>Not Complete</Text>}
-                </TouchableOpacity>
+                    circleSize={45}
+                    outerColor="#631878"
+                    innerColor="#631878"
+                    checkSize={40}
+                />
             </View>
-
-            <View style={s.footer}></View>
+            <View
+                style={{
+                    flexDirection: 'column',
+                    justifyContent: 'flex-start',
+                    width: '75%',
+                    height: '100%',
+                }}
+            >
+                <View
+                    style={{
+                        flexDirection: 'row',
+                        alignItems: 'flex-end',
+                        height: '50%',
+                    }}
+                >
+                    <Text
+                        style={{
+                            color: '#631878',
+                            fontSize: 17,
+                            fontWeight: 'bold',
+                        }}
+                    >
+                        {title}
+                    </Text>
+                </View>
+            </View>
         </View>
     );
+};
+
+Tile.propTypes = {
+    title: propTypes.string,
 };
 
 export default Tile;
