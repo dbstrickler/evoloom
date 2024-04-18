@@ -1,16 +1,15 @@
 'use strict';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import propTypes from 'prop-types';
-import * as React from 'react';
+import { useCallback } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
 const CheckBox = ({
     checked = false,
     circleSize = 26,
     checkSize = 23,
-    outerColor = '#FC9527',
-    filterColor = '#FFFFFF00',
-    innerColor = '#FC9527',
+    outerColor = '#631878',
+    checkColor = '#631878',
     onToggle,
 }) => {
     const customStyle = StyleSheet.create({
@@ -19,17 +18,17 @@ const CheckBox = ({
             height: circleSize,
             borderRadius: circleSize / 2,
             borderColor: outerColor,
-            borderWidth: 4,
+            borderWidth: 3,
         },
         _circleFilterStyle: {
-            width: circleSize - 2,
-            height: circleSize - 2,
+            width: circleSize - 3.5,
+            height: circleSize - 3.5,
             borderRadius: circleSize / 2,
-            backgroundColor: filterColor,
+            backgroundColor: '#FFFAF9',
         },
     });
 
-    const _onToggle = React.useCallback(() => {
+    const _onToggle = useCallback(() => {
         if (onToggle) {
             onToggle(!checked);
         }
@@ -51,7 +50,7 @@ const CheckBox = ({
                             <FontAwesomeIcon
                                 icon={['fas', 'check']}
                                 size={checkSize}
-                                color={innerColor}
+                                color={checkColor}
                             />
                         ) : null}
                     </View>
@@ -81,8 +80,8 @@ CheckBox.propTypes = {
     circleSize: propTypes.number,
     checkSize: propTypes.number,
     outerColor: propTypes.string,
-    filterColor: propTypes.string,
     innerColor: propTypes.string,
+    checkColor: propTypes.string,
     onToggle: propTypes.func.isRequired,
 };
 export default CheckBox;

@@ -10,7 +10,7 @@ import 'react-native-url-polyfill/auto';
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback, useEffect, useState } from 'react';
-import Tile from './components/Tiles/Tile';
+import TaskTile from './components/Tiles/TaskTile';
 library.add(fab, far, fas);
 let ScreenHeight = Dimensions.get('screen').height;
 
@@ -65,11 +65,19 @@ const App = () => {
                     >
                         <Header />
                         <View style={{ flex: 1 }}>
-                            <Tile title="Test Task" />
-                            <Tile title="Test Task adfadsfas" />
-                            <Tile title="Test Task 21" />
-                            <Tile title="Test Task 3" />
-                            <Tile title="Test Task 4455" />
+                            <TaskTile title="Test Task" />
+                            <TaskTile
+                                title="Test Task adfadsfas"
+                                hasSubtasks
+                                subTasks={[
+                                    { isComplete: true },
+                                    { isComplete: true },
+                                    { isComplete: false },
+                                ]}
+                            />
+                            <TaskTile title="Test Task 21" />
+                            <TaskTile title="Test Task 3" />
+                            <TaskTile title="Test Task 4455" />
                         </View>
                     </SafeAreaView>
                 </LinearGradient>
