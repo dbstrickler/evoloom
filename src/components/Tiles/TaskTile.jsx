@@ -1,17 +1,35 @@
+'use-strict';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { s, containers } from './Tile.style';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CheckBox from '../MyCheckbox/Checkbox';
-import propTypes from 'prop-types';
 import { Bar } from 'react-native-progress';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
-const Tile = ({ title, hasSubtasks = false, subTasks = [] }) => {
+/**
+ * @typedef {Object} Props
+ * @property {String} title title of task
+ * @property {Array<import('../types').SubTask>} [subTasks]
+ *
+ */
+
+/**
+ *
+ * @param {Props} Props
+ * @returns
+ */
+const Tile = ({ title, subTasks = [] }) => {
     const [isComplete, setIsComplete] = useState(false);
+
+    const hasSubtasks = subTasks.length;
 
     const numComplete = subTasks.length
         ? subTasks.filter((t) => t.isComplete).length / subTasks.length
         : 0;
+
+    useEffect(() => {
+        console.log(`${title} isComplete`, isComplete);
+    }, [isComplete]);
     return (
         <View style={s.tile}>
             <View style={containers.checkbox}>
@@ -78,14 +96,6 @@ const Tile = ({ title, hasSubtasks = false, subTasks = [] }) => {
             </View>
         </View>
     );
-};
-
-Tile.propTypes = {
-    title: propTypes.string.isRequired,
-    hasSubtasks: propTypes.bool,
-    subTasks: propTypes.arrayOf(
-        propTypes.shape({ isComplete: propTypes.bool.isRequired })
-    ),
 };
 
 export default Tile;

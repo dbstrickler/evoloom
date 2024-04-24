@@ -6,8 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import 'expo';
 
 const Header = () => {
-    // const [isComplete, setIsComplete] = useState(false);
-
     return (
         <View style={s.header}>
             <TouchableOpacity style={g.touchable}>

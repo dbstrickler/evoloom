@@ -1,9 +1,28 @@
 'use strict';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import propTypes from 'prop-types';
 import { useCallback } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
+/**
+ * @callback toggleFunc
+ * @param {boolean=} value
+ * @returns {void}
+ */
+/**
+ * @typedef {Object} Props
+ * @property {boolean} [checked]
+ * @property {number} [circleSize]
+ * @property {number} [checkSize]
+ * @property {string} [outerColor]
+ * @property {string} [checkColor]
+ * @property {toggleFunc} onToggle
+ */
+
+/**
+ *
+ * @param {Props} Props
+ * @returns
+ */
 const CheckBox = ({
     checked = false,
     circleSize = 26,
@@ -75,13 +94,4 @@ const styles = StyleSheet.create({
     },
 });
 
-CheckBox.propTypes = {
-    checked: propTypes.bool.isRequired,
-    circleSize: propTypes.number,
-    checkSize: propTypes.number,
-    outerColor: propTypes.string,
-    innerColor: propTypes.string,
-    checkColor: propTypes.string,
-    onToggle: propTypes.func.isRequired,
-};
 export default CheckBox;

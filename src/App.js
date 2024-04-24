@@ -65,14 +65,13 @@ const App = () => {
                     >
                         <Header />
                         <View style={{ flex: 1 }}>
-                            <TaskTile title="Test Task" />
+                            <TaskTile title="myTask 1" />
                             <TaskTile
                                 title="Test Task adfadsfas"
-                                hasSubtasks
                                 subTasks={[
-                                    { isComplete: true },
-                                    { isComplete: true },
-                                    { isComplete: false },
+                                    { title: 'Test Task 1', isComplete: true },
+                                    { title: 'Test Task 2', isComplete: true },
+                                    { title: 'Test Task 3', isComplete: false },
                                 ]}
                             />
                             <TaskTile title="Test Task 21" />

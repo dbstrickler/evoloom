@@ -15,6 +15,7 @@
     "plugins": ["react", "react-native"],
     "rules": {
         "eslint-disable-next-line": "off",
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "react/prop-types": "off"
     }
 }

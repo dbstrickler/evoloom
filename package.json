@@ -25,7 +25,6 @@
         "expo-modules-autolinking": "~1.10.0",
         "expo-splash-screen": "~0.26.4",
         "expo-status-bar": "~1.11.1",
-        "prop-types": "^15.8.1",
         "react": "18.2.0",
         "react-native": "0.73.6",
         "react-native-progress": "^5.0.1",
