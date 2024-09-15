@@ -42,10 +42,8 @@ export const s = StyleSheet.create({
     expandIcon: {
         flexDirection: 'row',
         width: '100%',
-        height: '50%',
-        // alignContent: 'flex-end',
-        justifyContent: 'space-around',
-        paddingEnd: 50,
+        alignContent: 'flex-end',
+        justifyContent: 'center',
     },
 });
 
@@ -111,6 +109,7 @@ export const newStyles = StyleSheet.create({
         shadowOpacity: 0.5,
         shadowRadius: 2,
         elevation: 2,
+        flex: 1,
     },
     itemTouchable: {
         borderRadius: 10,

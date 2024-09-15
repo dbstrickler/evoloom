@@ -25,8 +25,8 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
  */
 const CheckBox = ({
     checked = false,
-    circleSize = 26,
-    checkSize = 23,
+    circleSize = 29,
+    checkSize = 26,
     outerColor = '#631878',
     checkColor = '#631878',
     onToggle,

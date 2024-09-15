@@ -1,5 +1,5 @@
 'use-strict';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { newStyles } from './Tile.style';
 import { useState } from 'react';
 import CheckBox from '../MyCheckbox/Checkbox';
@@ -7,6 +7,7 @@ import Animated, {
     useAnimatedStyle,
     withTiming,
 } from 'react-native-reanimated';
+import { ExpandIcon, ProgessBar } from '../RandomComponents/random';
 
 export const CollapsableContainer = ({ children, expanded }) => {
     const [height, setHeight] = useState(0);
@@ -50,9 +51,9 @@ export const CollapsableContainer = ({ children, expanded }) => {
 
 export const Tile = ({ item }) => {
     const [checked, setChecked] = useState(false);
-    const [expanded, setExpanded] = useState(true);
+    const [expanded, setExpanded] = useState(false);
 
-    const toggleExpand = () => {
+    const toggleExpanded = () => {
         setExpanded(!expanded);
     };
 
@@ -74,16 +75,19 @@ export const Tile = ({ item }) => {
                     }}
                     checked={checked}
                 />
-                <TouchableOpacity
-                    onPress={toggleExpand}
-                    style={newStyles.itemTouchable}
-                >
-                    <Text style={newStyles.itemTitle}>{item.title}</Text>
-                </TouchableOpacity>
+
+                <Text style={newStyles.itemTitle}>{item.title}</Text>
             </View>
+
+            {/* add logic to only show if subTasks exist */}
+            <View style={{ flex: 1, flexDirection: 'row', paddingTop: 10 }}>
+                <ProgessBar />
+            </View>
+            {/* also only show if subtasks exist */}
             <CollapsableContainer expanded={expanded}>
                 <Text style={newStyles.itemContent}>{item.content}</Text>
             </CollapsableContainer>
+            <ExpandIcon toggleIcon={toggleExpanded} isExpanded={expanded} />
         </View>
     );
 };

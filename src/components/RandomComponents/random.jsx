@@ -3,7 +3,7 @@ import { containers, s } from '../Tiles/Tile.style';
 import { TouchableOpacity, View } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
-export const myProgessBar = (
+export const ProgessBar = () => (
     <View style={containers.progressBar}>
         <Bar
             style={{ width: '100%' }}
@@ -27,30 +27,9 @@ export const calendar = (
     </TouchableOpacity>
 );
 
-/**
- * @callback setStateFunction
- * @param {boolean=} value
- * @returns {void}
- */
-/**
- * @typedef {Object} Props
- * @property {boolean} isExpanded will set the direction of the arrow
- * @property {setStateFunction} setIsExpanded set
- */
-
-/**
- *
- * @param {Props} Props
- * @returns
- */
-export const expandIcon = ({ isExpanded, setIsExpanded }) => {
+export const ExpandIcon = ({ isExpanded, toggleIcon }) => {
     return (
-        <TouchableOpacity
-            style={s.expandIcon}
-            onPress={() => {
-                setIsExpanded(!isExpanded);
-            }}
-        >
+        <TouchableOpacity style={s.expandIcon} onPress={() => toggleIcon()}>
             <FontAwesomeIcon
                 icon={['fas', `${isExpanded ? 'caret-up' : 'caret-down'}`]}
                 size={25}
