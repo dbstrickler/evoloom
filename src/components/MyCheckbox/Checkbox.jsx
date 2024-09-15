@@ -43,7 +43,7 @@ const CheckBox = ({
             width: circleSize - 3.5,
             height: circleSize - 3.5,
             borderRadius: circleSize / 2,
-            backgroundColor: '#FFFAF9',
+            backgroundColor: '#fcf2fe',
         },
     });
 

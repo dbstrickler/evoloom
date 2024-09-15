@@ -1,14 +1,43 @@
 'use-strict';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { s, containers } from './Tile.style';
-import { useEffect, useState } from 'react';
+import { newStyles } from './Tile.style';
+import { useState } from 'react';
 import CheckBox from '../MyCheckbox/Checkbox';
-import { Bar } from 'react-native-progress';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import Animated, {
+    useAnimatedStyle,
+    withTiming,
+} from 'react-native-reanimated';
+
+export const CollapsableContainer = ({ children, expanded }) => {
+    const [height, setHeight] = useState(0);
+    const onLayout = (e) => {
+        const layoutHeight = e.nativeEvent.layout.height;
+        if (layoutHeight > 0 && layoutHeight !== height) {
+            setHeight(layoutHeight);
+        }
+    };
+    const animatedStyle = useAnimatedStyle(() => {
+        const animatedHeight = expanded ? withTiming(height) : withTiming(0);
+        return { height: animatedHeight };
+    });
+    return (
+        <Animated.View style={[animatedStyle, { overflow: 'hidden' }]}>
+            <View onLayout={onLayout} style={{ position: 'absolute' }}>
+                {children}
+            </View>
+        </Animated.View>
+    );
+};
 
 /**
+ * @typedef {Object} Item
+ * @property {number} id
+ * @property {string} title
+ * @property {string} content
+ */
+/**
  * @typedef {Object} Props
- * @property {String} title title of task
+ * @property {Item} item Item to display
  * @property {Array<import('../types').SubTask>} [subTasks]
  *
  */
@@ -18,82 +47,43 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
  * @param {Props} Props
  * @returns
  */
-const Tile = ({ title, subTasks = [] }) => {
-    const [isComplete, setIsComplete] = useState(false);
 
-    const hasSubtasks = subTasks.length;
+export const Tile = ({ item }) => {
+    const [checked, setChecked] = useState(false);
+    const [expanded, setExpanded] = useState(true);
 
-    const numComplete = subTasks.length
-        ? subTasks.filter((t) => t.isComplete).length / subTasks.length
-        : 0;
+    const toggleExpand = () => {
+        setExpanded(!expanded);
+    };
 
-    useEffect(() => {
-        console.log(`${title} isComplete`, isComplete);
-    }, [isComplete]);
     return (
-        <View style={s.tile}>
-            <View style={containers.checkbox}>
+        <View style={newStyles.itemContainer}>
+            <View
+                style={{
+                    flex: 1,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    gap: 5,
+                }}
+            >
                 <CheckBox
-                    checked={isComplete}
                     onToggle={() => {
-                        setIsComplete((complete) => {
-                            return !complete;
+                        setChecked((checked) => {
+                            return !checked;
                         });
                     }}
-                    circleSize={45}
-                    checkSize={40}
+                    checked={checked}
                 />
-            </View>
-            <View style={containers.task}>
-                <View
-                    style={
-                        hasSubtasks
-                            ? containers.titleRowWithSubtasks
-                            : containers.titleRow
-                    }
+                <TouchableOpacity
+                    onPress={toggleExpand}
+                    style={newStyles.itemTouchable}
                 >
-                    <Text style={s.titleText}>{title}</Text>
-                    <Text style={s.separator}>|</Text>
-                    <TouchableOpacity style={s.calendar}>
-                        <FontAwesomeIcon
-                            icon={['fas', 'calendar-days']}
-                            size={25}
-                            color="#ffa834"
-                        />
-                    </TouchableOpacity>
-                </View>
-                {hasSubtasks ? (
-                    <View style={{ flexDirection: 'row', height: '50%' }}>
-                        <View
-                            style={{
-                                flexDirection: 'column',
-                                width: '100%',
-                                paddingEnd: 20,
-                                alignItems: 'flex-start',
-                            }}
-                        >
-                            <View style={containers.progressBar}>
-                                <Bar
-                                    style={{ width: '100%' }}
-                                    progress={numComplete}
-                                    width={null}
-                                    height={17}
-                                    borderRadius={6}
-                                    color="#631878"
-                                    borderColor="#631878"
-                                />
-                            </View>
-                            <TouchableOpacity style={s.expandIcon}>
-                                <FontAwesomeIcon
-                                    icon={['fas', 'caret-down']}
-                                    size={25}
-                                    color="#631878"
-                                />
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                ) : null}
+                    <Text style={newStyles.itemTitle}>{item.title}</Text>
+                </TouchableOpacity>
             </View>
+            <CollapsableContainer expanded={expanded}>
+                <Text style={newStyles.itemContent}>{item.content}</Text>
+            </CollapsableContainer>
         </View>
     );
 };

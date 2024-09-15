@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export const s = StyleSheet.create({
     tile: {
         width: '100%',
-        height: '12%',
+        height: '15%',
         flexDirection: 'row',
         backgroundColor: '#FFFFFF00',
         // this is for Android
@@ -43,7 +43,7 @@ export const s = StyleSheet.create({
         flexDirection: 'row',
         width: '100%',
         height: '50%',
-        alignContent: 'space-around',
+        // alignContent: 'flex-end',
         justifyContent: 'space-around',
         paddingEnd: 50,
     },
@@ -77,7 +77,57 @@ export const containers = StyleSheet.create({
     progressBar: {
         flexDirection: 'row',
         width: '100%',
-        height: '50%',
+        height: '100%',
         alignItems: 'center',
+    },
+});
+
+export const newStyles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#f5f5f5',
+        padding: 20,
+    },
+    header: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        marginBottom: 20,
+        color: 'green',
+        textAlign: 'center',
+    },
+    subheader: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 20,
+        textAlign: 'center',
+    },
+    itemContainer: {
+        marginBottom: 10,
+        padding: 10,
+        borderRadius: 5,
+        backgroundColor: '#fcf2fe',
+        shadowColor: '#631878c2',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.5,
+        shadowRadius: 2,
+        elevation: 2,
+    },
+    itemTouchable: {
+        borderRadius: 10,
+        overflow: 'hidden',
+        flexDirection: 'row',
+        width: 0,
+        flexGrow: 1,
+        flex: 1,
+    },
+    itemTitle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#631878',
+    },
+    itemContent: {
+        marginTop: 10,
+        fontSize: 14,
+        color: '#666',
     },
 });
