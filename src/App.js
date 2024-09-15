@@ -10,7 +10,7 @@ import 'react-native-url-polyfill/auto';
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback, useEffect, useState } from 'react';
-import TaskTile from './components/Tiles/TaskTile';
+import ExpandableList from './components/ExpandableList/ExpandbleList';
 library.add(fab, far, fas);
 let ScreenHeight = Dimensions.get('screen').height;
 
@@ -44,13 +44,61 @@ const App = () => {
             await SplashScreen.hideAsync();
         }
     }, [fontsLoaded]);
+
+    const data = [
+        {
+            id: 0,
+            title: 'aaaaaaaaaaaa',
+            content: `blah blah blah
+            tasks exist here
+            and more tasks`,
+        },
+        {
+            id: 1,
+            title: 'Yet another task to do and this will wrap',
+            content: `blah blah blah
+            tasks exist here
+            and more tasks`,
+        },
+        {
+            id: 2,
+            title: 'Yet another task to do',
+            content: `blah blah blah
+            tasks exist here
+            and more tasks`,
+        },
+        {
+            id: 3,
+            title: 'Yet another task to do',
+            content: `blah blah blah
+            tasks exist here
+            and more tasks`,
+        },
+        {
+            id: 4,
+            title: 'Yet another task to do',
+            content: `blah blah blah
+            tasks exist here
+            and more tasks`,
+        },
+        {
+            id: 5,
+            title: 'Yet another task to do',
+            content: `blah blah blah
+            tasks exist here
+            and more tasks`,
+        },
+    ];
+
     if (!fontsLoaded) {
         return null;
     } else {
         return (
             <SafeAreaProvider>
                 <LinearGradient
-                    colors={['#fcf2fe', '#d2b4d8']}
+                    colors={['#f7e7fa', '#d2b4d8']}
+                    start={{ x: 0.5, y: 0 }}
+                    end={{ x: 0.5, y: 0.24 }}
                     style={{
                         position: 'absolute',
                         left: 0,
@@ -61,22 +109,13 @@ const App = () => {
                     onLayout={onLayoutRootView}
                 >
                     <SafeAreaView
-                        style={{ flex: 1, justifyContent: 'flex-start' }}
+                        style={{
+                            flex: 1,
+                        }}
                     >
                         <Header />
                         <View style={{ flex: 1 }}>
-                            <TaskTile title="myTask 1" />
-                            <TaskTile
-                                title="Test Task adfadsfas"
-                                subTasks={[
-                                    { title: 'Test Task 1', isComplete: true },
-                                    { title: 'Test Task 2', isComplete: true },
-                                    { title: 'Test Task 3', isComplete: false },
-                                ]}
-                            />
-                            <TaskTile title="Test Task 21" />
-                            <TaskTile title="Test Task 3" />
-                            <TaskTile title="Test Task 4455" />
+                            <ExpandableList data={data} />
                         </View>
                     </SafeAreaView>
                 </LinearGradient>
