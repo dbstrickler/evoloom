@@ -55,7 +55,7 @@ const CheckBox = ({
 
     return (
         <TouchableOpacity onPress={_onToggle}>
-            <View style={[styles.checkBoxContainer]}>
+            <View style={[styles.checkBoxContainer, { width: circleSize }]}>
                 <View
                     style={[styles.alignStyle, customStyle._circleOuterStyle]}
                 >

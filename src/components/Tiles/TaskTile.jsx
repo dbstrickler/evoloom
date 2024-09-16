@@ -7,7 +7,7 @@ import Animated, {
     useAnimatedStyle,
     withTiming,
 } from 'react-native-reanimated';
-import { ExpandIcon, ProgessBar } from '../RandomComponents/random';
+import { Calendar, ExpandIcon, ProgessBar } from '../RandomComponents/random';
 
 export const CollapsableContainer = ({ children, expanded }) => {
     const [height, setHeight] = useState(0);
@@ -64,19 +64,33 @@ export const Tile = ({ item }) => {
                     flex: 1,
                     flexDirection: 'row',
                     alignItems: 'center',
-                    gap: 5,
+                    gap: 8,
                 }}
             >
-                <CheckBox
-                    onToggle={() => {
-                        setChecked((checked) => {
-                            return !checked;
-                        });
+                <View
+                    style={{
+                        flexDirection: 'column',
                     }}
-                    checked={checked}
-                />
-
-                <Text style={newStyles.itemTitle}>{item.title}</Text>
+                >
+                    <CheckBox
+                        onToggle={() => {
+                            setChecked((checked) => {
+                                return !checked;
+                            });
+                        }}
+                        checked={checked}
+                    />
+                </View>
+                <View
+                    style={{
+                        flex: 1,
+                        flexDirection: 'column',
+                        justifyContent: 'flex-start',
+                    }}
+                >
+                    <Text style={newStyles.itemTitle}>{item.title}</Text>
+                </View>
+                <Calendar />
             </View>
 
             {/* add logic to only show if subTasks exist */}

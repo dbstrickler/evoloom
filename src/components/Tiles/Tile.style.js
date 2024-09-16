@@ -35,9 +35,8 @@ export const s = StyleSheet.create({
     },
     calendar: {
         flex: 1,
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        paddingBottom: 2,
+        justifyContent: 'center',
+        height: '100%',
     },
     expandIcon: {
         flexDirection: 'row',

@@ -17,14 +17,16 @@ export const ProgessBar = () => (
     </View>
 );
 
-export const calendar = (
-    <TouchableOpacity style={s.calendar}>
-        <FontAwesomeIcon
-            icon={['fas', 'calendar-days']}
-            size={25}
-            color="#ffa834"
-        />
-    </TouchableOpacity>
+export const Calendar = () => (
+    <View>
+        <TouchableOpacity style={s.calendar}>
+            <FontAwesomeIcon
+                icon={['fas', 'calendar-days']}
+                size={25}
+                color="#ffa834"
+            />
+        </TouchableOpacity>
+    </View>
 );
 
 export const ExpandIcon = ({ isExpanded, toggleIcon }) => {
