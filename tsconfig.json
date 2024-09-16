@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "module": "ESNext",
+        "checkJs": true,
+        "strict": true,
+        "verbatimModuleSyntax": true,
+        "allowSyntheticDefaultImports": true,
+        "isolatedModules": true,
+        "types": ["react-native", "vitest"],
+        "noImplicitReturns": true,
+        "noUncheckedIndexedAccess": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitOverride": true,
+        "allowUnreachableCode": false
+    },
+    "exclude": ["node_modules", "**/node_modules/*"],
+    "extends": "expo/tsconfig.base"
+}

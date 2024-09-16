@@ -9,9 +9,15 @@ import Animated, {
 } from 'react-native-reanimated';
 import { Calendar, ExpandIcon, ProgessBar } from '../RandomComponents/random';
 
-export const CollapsableContainer = ({ children, expanded }) => {
+export const CollapsableContainer = ({
+    children,
+    expanded,
+}: {
+    children: React.ReactNode;
+    expanded: boolean;
+}) => {
     const [height, setHeight] = useState(0);
-    const onLayout = (e) => {
+    const onLayout = (e: { nativeEvent: { layout: { height: any } } }) => {
         const layoutHeight = e.nativeEvent.layout.height;
         if (layoutHeight > 0 && layoutHeight !== height) {
             setHeight(layoutHeight);
@@ -49,7 +55,7 @@ export const CollapsableContainer = ({ children, expanded }) => {
  * @returns
  */
 
-export const Tile = ({ item }) => {
+export const Tile = ({ item }: { item: any }) => {
     const [checked, setChecked] = useState(false);
     const [expanded, setExpanded] = useState(false);
 

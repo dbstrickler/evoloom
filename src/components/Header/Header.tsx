@@ -1,7 +1,6 @@
 import { View, TouchableOpacity, Text } from 'react-native';
 import { s } from './Header.style';
 import { g } from '../global.style';
-// import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import 'expo';
 

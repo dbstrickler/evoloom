@@ -29,7 +29,13 @@ export const Calendar = () => (
     </View>
 );
 
-export const ExpandIcon = ({ isExpanded, toggleIcon }) => {
+export const ExpandIcon = ({
+    isExpanded,
+    toggleIcon,
+}: {
+    isExpanded: boolean;
+    toggleIcon: () => void;
+}) => {
     return (
         <TouchableOpacity style={s.expandIcon} onPress={() => toggleIcon()}>
             <FontAwesomeIcon
