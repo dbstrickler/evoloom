@@ -1,8 +1,9 @@
-/**
- * @typedef {Object} SubTask
- * @property {String} title
- * @property {Boolean} isComplete
- *
- */
+export interface MainTask extends TaskBase {
+    SubTasks: TaskBase[];
+}
 
-export {};
+export type TaskBase = {
+    Id: number;
+    Title: string;
+    IsComplete: boolean;
+};

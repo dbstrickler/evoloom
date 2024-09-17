@@ -11,6 +11,8 @@ import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback, useEffect, useState } from 'react';
 import ExpandableList from './components/ExpandableList/ExpandbleList';
+import type { TaskType } from './components/types';
+import { isColor } from 'react-native-reanimated';
 library.add(fab, far, fas);
 let ScreenHeight = Dimensions.get('screen').height;
 
@@ -45,48 +47,49 @@ const App = () => {
         }
     }, [fontsLoaded]);
 
-    const data = [
+    const data: TaskType[] = [
         {
-            id: 0,
-            title: 'aaaaaaaaaaaa',
-            content: `blah blah blah
-            tasks exist here
-            and more tasks`,
+            Id: 0,
+            Title: 'aaaaaaaaaaaa',
+            IsComplete: false,
+            SubTasks: [
+                { Id: 10, Title: 'Subtask 1', isComplete: false },
+                {
+                    Id: 11,
+                    Title: 'Yet another task to do and this hasl wrap 2',
+                    isComplete: false,
+                },
+            ],
         },
         {
-            id: 1,
-            title: 'Yet another task to do and this will wrap',
-            content: `blah blah blah
-            tasks exist here
-            and more tasks`,
+            Id: 1,
+            Title: 'Yet another task to do and this will wrap',
+            IsComplete: false,
+            SubTasks: [],
         },
         {
-            id: 2,
-            title: 'Yet another task to do',
-            content: `blah blah blah
-            tasks exist here
-            and more tasks`,
+            Id: 2,
+            Title: 'Yet another task to do',
+            IsComplete: false,
+            SubTasks: [],
         },
         {
-            id: 3,
-            title: 'Yet another task to do',
-            content: `blah blah blah
-            tasks exist here
-            and more tasks`,
+            Id: 3,
+            Title: 'Yet another task to do',
+            IsComplete: false,
+            SubTasks: [],
         },
         {
-            id: 4,
-            title: 'Yet another task to do',
-            content: `blah blah blah
-            tasks exist here
-            and more tasks`,
+            Id: 4,
+            Title: 'Yet another task to do',
+            IsComplete: false,
+            SubTasks: [],
         },
         {
-            id: 5,
-            title: 'Yet another task to do',
-            content: `blah blah blah
-            tasks exist here
-            and more tasks`,
+            Id: 5,
+            Title: 'Yet another task to do',
+            IsComplete: false,
+            SubTasks: [],
         },
     ];
 

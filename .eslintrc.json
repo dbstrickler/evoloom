@@ -4,18 +4,20 @@
         "react-native/react-native": true,
         "es2021": true
     },
-    "extends": ["eslint:recommended", "plugin:react/recommended"],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "sourceType": "module"
-    },
-
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "next/core-web-vitals",
+        "plugin:storybook/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
     "plugins": ["react", "react-native"],
     "rules": {
         "eslint-disable-next-line": "off",
         "react/react-in-jsx-scope": "off",
-        "react/prop-types": "off"
+        "react/prop-types": "off",
+        "react/jsx-filename-extension": "off",
+        "typescript-eslint/no-explicit-any": "off"
     }
 }

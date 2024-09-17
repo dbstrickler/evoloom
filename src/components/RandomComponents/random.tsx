@@ -1,13 +1,13 @@
 import { Bar } from 'react-native-progress';
-import { containers, s } from '../Tiles/Tile.style';
+import { containers, s } from '../Tasks/Tile.style';
 import { TouchableOpacity, View } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
-export const ProgessBar = () => (
+export const ProgessBar = ({ progress }: { progress: number }) => (
     <View style={containers.progressBar}>
         <Bar
             style={{ width: '100%' }}
-            progress={0}
+            progress={progress}
             width={null}
             height={17}
             borderRadius={6}

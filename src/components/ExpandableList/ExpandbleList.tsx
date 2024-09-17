@@ -1,14 +1,15 @@
 import { FlatList, View } from 'react-native';
-import Tile from '../Tiles/TaskTile';
+import Tile from '../Tasks/TaskTile';
+import type { MainTask } from '../types';
 
-const ExpandableList = ({ data }) => {
-    const renderItem = ({ item }) => <Tile item={item} />;
+const ExpandableList = ({ data }: { data: MainTask[] }) => {
+    const renderItem = ({ item }: { item: MainTask }) => <Tile item={item} />;
 
     return (
         <FlatList
             data={data}
             renderItem={renderItem}
-            keyExtractor={(item) => item.id.toString()}
+            keyExtractor={(item) => item.Id.toString()}
             ListFooterComponent={<View style={{ height: 40 }} />}
             style={{ padding: 20 }}
         />

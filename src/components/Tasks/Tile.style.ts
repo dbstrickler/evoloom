@@ -92,12 +92,6 @@ export const newStyles = StyleSheet.create({
         color: 'green',
         textAlign: 'center',
     },
-    subheader: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        marginBottom: 20,
-        textAlign: 'center',
-    },
     itemContainer: {
         marginBottom: 10,
         padding: 10,
@@ -118,10 +112,17 @@ export const newStyles = StyleSheet.create({
         flexGrow: 1,
         flex: 1,
     },
-    itemTitle: {
+    mainTitle: {
         fontSize: 18,
         fontWeight: 'bold',
         color: '#631878',
+    },
+    subTitle: {
+        fontSize: 16,
+        fontWeight: '500',
+        color: '#631878',
+        flex: 1,
+        flexDirection: 'row',
     },
     itemContent: {
         marginTop: 10,
