@@ -1,4 +1,9 @@
 # Evoloom
+This app (currently under construction) serves many purposes.  For now it is just my "Learn React Native" task list application.  Once I have a base task list app implemented, I will begin to expand this into a more useful app by including features such as 
+1. Goal Tracking
+2. Meal Tracking
+3. Workout Tracking
+4. Calculation of a "productivity score" based on completion of set goals/tasks
 
 # Setup
 
